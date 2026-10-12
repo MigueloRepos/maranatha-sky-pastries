@@ -6,7 +6,7 @@ export const OCCASIONS = ["Cumpleaños", "Bodas y aniversarios", "Celebraciones 
 export const orderSchema = z.object({
   name: z.string().trim().min(2, "Indica tu nombre (mínimo 2 caracteres).").max(80, "Máximo 80 caracteres."),
   contact: z.string().trim().min(5, "Indica un teléfono o correo para responderte.").max(120, "Máximo 120 caracteres."),
-  creation: z.enum(CREATION_TYPES, { message: "Elige un tipo de creación." }),
+  creation: z.enum(CREATION_TYPES, { errorMap: () => ({ message: "Elige un tipo de creación." }) }),
   occasion: z.string().max(40).optional().or(z.literal("")),
   date: z
     .string()
