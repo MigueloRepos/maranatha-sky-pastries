@@ -29,7 +29,7 @@ export function OrderForm() {
       setErrors(errs);
       setSummary("");
       const first = Object.keys(errs)[0];
-      document.getElementById(id(first))?.focus();
+      if (first) document.getElementById(id(first))?.focus();
       return;
     }
     setErrors({});
